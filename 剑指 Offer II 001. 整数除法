@@ -1,0 +1,39 @@
+class Solution {
+    public int divide(int a, int b) {
+        long na = a, nb = b;
+        na = Math.abs(na);
+        nb = Math.abs(nb);
+        char[] chars = String.valueOf(na).toCharArray();
+        long c;
+        StringBuffer build = new StringBuffer();
+        StringBuilder res = new StringBuilder(0);
+        for (int i = 0; i < chars.length; i++) {
+            c = Long.valueOf(build.append(chars[i] - '0').toString());
+            if(c >= nb) {
+                res.append(sub(c, nb, build));
+            } else if (i != 0) {
+                res.append(0);
+            }
+        }
+        long ans = Long.valueOf(0 + res.toString());
+        if((a < 0 && b > 0) || (a > 0 && b < 0)) {
+            ans = -ans;
+        }
+        if(ans > Integer.MAX_VALUE) {
+            ans -= 1;
+        }
+        return (int)ans;
+    }
+
+    private int sub(long sum, long base, StringBuffer build){
+        long summarise = sum;
+        int cnt = 0;
+        while (summarise >= base) {
+            summarise -= base;
+            cnt++;
+        }
+        build.replace(0, build.length(),"");
+        build.append(summarise);
+        return cnt;
+    }
+}
