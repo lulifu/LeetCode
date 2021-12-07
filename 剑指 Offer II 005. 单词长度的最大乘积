@@ -1,0 +1,17 @@
+class Solution {
+    public int maxProduct(String[] words) {
+        int[] f = new int[words.length];
+        for(int i = 0; i < f.length; ++i){
+            for(char c : words[i].toCharArray()) f[i] = f[i] | 1<<(c-'a');
+            //1左移的位数和0取逻辑或的结果，保存对应字母位为0时对应字母不存在，1则存在
+        }
+        int max = 0;
+        for(int i = 0; i < words.length; ++i){
+            for(int j = i+1; j < words.length; ++j){
+                //对两两字符串的每一位取逻辑与的结果，若结果为1则说明有对应字母位同时为1，即两字符串存在相同字母
+                if((f[i] & f[j]) == 0) max = Math.max(max, words[i].length()*words[j].length());
+            }
+        }
+        return max;
+    }
+}
