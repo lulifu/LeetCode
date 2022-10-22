@@ -11,6 +11,6 @@
 
 ## Analysis
 
-Time Complexity: $ O() $
+Time Complexity: $O()$
 
-Space Complexity: $ O() $
+Space Complexity: $O()$
