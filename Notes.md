@@ -3,6 +3,16 @@
 ## Java Syntax
 
 ```java
+// String operations
+str.length();
+str.charAt(index);
+str.append("ab");
+str.substring(begin, end);
+StringBuilder ans = new StringBuilder();
+ans.toString();
+```
+
+```java
 // sort of complexity object
 Arrays.sort(jobs, (a,b)->a[1]-b[1]); // ascending order
 Arrays.sort(people, new Comparator<int[]>() {
