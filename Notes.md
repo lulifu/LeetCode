@@ -25,6 +25,15 @@ Arrays.sort(people, new Comparator<int[]>() {
 ```
 
 ```java
+HashMap <Integer, Integer> mp = new HashMap<>();
+mp.put(0, 1);
+if (mp.containsKey(pre - k)) {
+    count += mp.get(pre - k);
+}
+mp.put(pre, mp.getOrDefault(pre, 0) + 1);
+```
+
+```java
 // monotonic stack
 Deque<Integer> stack = new LinkedList<>(); // define stack
 for (int i = 0; i < len; i++) {
