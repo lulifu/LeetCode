@@ -13,6 +13,16 @@ ans.toString();
 ```
 
 ```java
+// int[][]
+int[][] dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
+// queue
+Queue<int[]> queue = new ArrayDeque<int[]>();
+while (!queue.isEmpty())
+int[] cell = queue.poll();
+queue.offer(new int[]{nx, ny});
+```
+
+```java
 // sort of complexity object
 Arrays.sort(jobs, (a,b)->a[1]-b[1]); // ascending order
 Arrays.sort(people, new Comparator<int[]>() {
@@ -117,5 +127,43 @@ public void swap(int[] a, int i, int j) {
     int temp = a[i];
     a[i] = a[j];
     a[j] = temp;
+}
+```
+
+### Bepth-First Search
+
+```java
+public void dfs(int x, int y, int[][] grid, Queue<int[]> queue) {
+    if (x < 0 || y < 0 || x >= grid.length || y >= grid[0].length || grid[x][y] != 1) return;
+    queue.offer(new int[]{x, y});
+    grid[x][y] = -1; // explored
+    dfs(x - 1, y, grid, queue);
+    dfs(x + 1, y, grid, queue);
+    dfs(x, y - 1, grid, queue);
+    dfs(x, y + 1, grid, queue);
+}
+```
+
+### Breadth-First Search
+
+```java
+while (!queue.isEmpty()) {
+    int sz = queue.size();
+    for (int k = 0; k < sz; k++) {
+        int[] cell = queue.poll();
+        int x = cell[0], y = cell[1];
+        for (int d = 0; d < 4; d++) {
+            int nx = x + dirs[d][0];
+            int ny = y + dirs[d][1];
+            if (nx >= 0 && ny >= 0 && nx < n && ny < n) {
+                if (grid[nx][ny] == 0) {
+                    queue.offer(new int[]{nx, ny});
+                    grid[nx][ny] = -1;
+                } else if (grid[nx][ny] == 1) {
+                    return step;
+                }
+            }
+        }
+    }
 }
 ```
