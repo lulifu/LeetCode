@@ -3,6 +3,12 @@
 ## Java Syntax
 
 ```java
+// Max Min
+int maxn = Integer.MIN_VALUE;
+int minn = Integer.MAX_VALUE;
+```
+
+```java
 // String operations
 str.length();
 str.charAt(index);
