@@ -9,18 +9,41 @@ int minn = Integer.MAX_VALUE;
 ```
 
 ```java
+//bit manipulate
+chars[pos] = (char) (chars[pos] ^ 32); // switch a letter between upper or lower case
+// ^ means XOR: Bitwise XOR also takes two equal-length bit patterns. If both bits in the compared position of the bit patterns are 0 or 1, the bit in the resulting bit pattern is 0, otherwise 1.
+```
+
+```java
+Map<Character, Integer> freq = new HashMap<>();
+Set<Map.Entry<Character, Integer>> entrySet = freq.entrySet();
+for (Map.Entry<Character, Integer> entry: entrySet) {
+    int value = entry.getValue();
+}
+```
+
+```java
 // String operations
+chars = str.toCharArray();
+new String(chars);
 str.length();
 str.charAt(index);
 str.append("ab");
+str.equals("target");
 str.substring(begin, end);
 StringBuilder ans = new StringBuilder();
 ans.toString();
+// character
+Character.isDigit(chars[pos]);
+Character.isLetter(chars[pos]);
 ```
 
 ```java
 // int[][]
 int[][] dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
+// List
+n = ls.size();
+elem = ls.get(idx);
 // queue
 Queue<int[]> queue = new ArrayDeque<int[]>();
 while (!queue.isEmpty())
@@ -64,6 +87,12 @@ for (int i = 0; i < len; i++) {
 ```
 
 ## Python Syntax
+
+```python
+# HashMap counter
+freq = collections.Counter(tasks)
+maxExec = max(freq.values())
+```
 
 ```python
 # stack
