@@ -137,7 +137,7 @@ public int binarySearch(int[][] jobs, int right, int target) {
 }
 ```
 
-## Priority Queue
+### Priority Queue
 
 ```java
 public int popMaxHeap(int[] a, int heapSize) {
