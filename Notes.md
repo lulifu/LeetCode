@@ -1,5 +1,14 @@
 # Notes
 
+## JavaScript Syntax
+
+```js
+// Char Code
+var s = new Array(n).fill('1');
+let size = s[i].charCodeAt() - '0'.charCodeAt();
+s[j] = String.fromCharCode('0'.charCodeAt() + diff);
+```
+
 ## Java Syntax
 
 ```java
