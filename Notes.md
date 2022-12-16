@@ -1,5 +1,18 @@
 # Notes
 
+- [Notes](#notes)
+  - [JavaScript Syntax](#javascript-syntax)
+  - [Java Syntax](#java-syntax)
+  - [Python Syntax](#python-syntax)
+  - [Algorithms](#algorithms)
+    - [Binary Search](#binary-search)
+    - [Priority Queue](#priority-queue)
+    - [Bepth-First Search](#bepth-first-search)
+    - [Breadth-First Search](#breadth-first-search)
+    - [QuickSort](#quicksort)
+    - [MergeSort](#mergesort)
+    - [HeapSort](#heapsort)
+
 ## JavaScript Syntax
 
 ```js
@@ -210,4 +223,96 @@ while (!queue.isEmpty()) {
         }
     }
 }
+```
+
+### QuickSort
+
+```python
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        self.quickSort(nums, 0, len(nums) - 1)
+        return nums
+    
+    def quickSort(self, nums, left, right):
+        if left < right:
+            # randomly select pivot (in case of ascending or descending ording testing sample)
+            pivotIndex = random.randint(left, right)
+            storeIndex = self.partition(nums, left, right, pivotIndex)
+            self.quickSort(nums, left, storeIndex - 1)
+            self.quickSort(nums, storeIndex + 1, right)
+
+    def partition(self, nums, left, right, pivotIndex):
+        pivotValue = nums[pivotIndex]
+        nums[pivotIndex], nums[right] = nums[right], nums[pivotIndex]
+        storeIndex = left
+        for i in range(left, right):
+            # when nums[i] == pivotValue, randomly put nums[i] to left or right side of pivot (in case of [2,2,2,...,2,2] testing sample)
+            if nums[i] < pivotValue or (nums[i] == pivotValue and random.random() < 0.5):
+                nums[i], nums[storeIndex] = nums[storeIndex], nums[i]
+                storeIndex += 1
+        nums[storeIndex], nums[right] = nums[right], nums[storeIndex]
+        return storeIndex
+```
+
+### MergeSort
+
+```python
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        self.mergeSort(nums, 0, len(nums) - 1)
+        return nums
+    def mergeSort(self, nums, l, r):
+        if l >= r: return
+        mid = (l + r) // 2
+        self.mergeSort(nums, l, mid)
+        self.mergeSort(nums, mid + 1, r)
+        temp = []
+        i, j = l, mid + 1
+        while i <= mid and j <= r:
+            if nums[i] <= nums[j]:
+                temp.append(nums[i])
+                i += 1
+            else:
+                temp.append(nums[j])
+                j += 1
+        while i <= mid:
+            temp.append(nums[i])
+            i += 1
+        while j <= r:
+            temp.append(nums[j])
+            j += 1
+        nums[l: r + 1] = temp
+```
+
+### HeapSort
+
+```python
+class Solution:
+    def max_heapify(self, heap, root, heap_len):
+        p = root
+        while p * 2 + 1 < heap_len:
+            l, r = p * 2 + 1, p * 2 + 2
+            if heap_len <= r or heap[r] < heap[l]:
+                nex = l
+            else:
+                nex = r
+            if heap[p] < heap[nex]:
+                heap[p], heap[nex] = heap[nex], heap[p]
+                p = nex
+            else:
+                break
+        
+    def build_heap(self, heap):
+        for i in range(len(heap) - 1, -1, -1):
+            self.max_heapify(heap, i, len(heap))
+
+    def heap_sort(self, nums):
+        self.build_heap(nums)
+        for i in range(len(nums) - 1, -1, -1):
+            nums[i], nums[0] = nums[0], nums[i]
+            self.max_heapify(nums, 0, i)
+            
+    def sortArray(self, nums: List[int]) -> List[int]:
+        self.heap_sort(nums)
+        return nums
 ```
