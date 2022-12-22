@@ -1,17 +1,20 @@
 # Notes
 
 - [Notes](#notes)
+- [Syntax](#syntax)
   - [JavaScript Syntax](#javascript-syntax)
   - [Java Syntax](#java-syntax)
   - [Python Syntax](#python-syntax)
-  - [Algorithms](#algorithms)
-    - [Binary Search](#binary-search)
-    - [Priority Queue](#priority-queue)
-    - [Bepth-First Search](#bepth-first-search)
-    - [Breadth-First Search](#breadth-first-search)
-    - [QuickSort](#quicksort)
-    - [MergeSort](#mergesort)
-    - [HeapSort](#heapsort)
+- [Algorithms](#algorithms)
+  - [Binary Search](#binary-search)
+  - [Priority Queue](#priority-queue)
+  - [Bepth-First Search](#bepth-first-search)
+  - [Breadth-First Search](#breadth-first-search)
+  - [QuickSort](#quicksort)
+  - [MergeSort](#mergesort)
+  - [HeapSort](#heapsort)
+
+# Syntax
 
 ## JavaScript Syntax
 
@@ -127,9 +130,9 @@ while stack and temperature > temperatures[stack[-1]]:
 stack.append(i)
 ```
 
-## Algorithms
+# Algorithms
 
-### Binary Search
+## Binary Search
 
 ```java
 public int binarySearch(int[][] jobs, int right, int target) {
@@ -150,7 +153,7 @@ public int binarySearch(int[][] jobs, int right, int target) {
 }
 ```
 
-### Priority Queue
+## Priority Queue
 
 ```java
 public int popMaxHeap(int[] a, int heapSize) {
@@ -187,7 +190,7 @@ public void swap(int[] a, int i, int j) {
 }
 ```
 
-### Bepth-First Search
+## Bepth-First Search
 
 ```java
 public void dfs(int x, int y, int[][] grid, Queue<int[]> queue) {
@@ -201,7 +204,7 @@ public void dfs(int x, int y, int[][] grid, Queue<int[]> queue) {
 }
 ```
 
-### Breadth-First Search
+## Breadth-First Search
 
 ```java
 while (!queue.isEmpty()) {
@@ -225,7 +228,7 @@ while (!queue.isEmpty()) {
 }
 ```
 
-### QuickSort
+## QuickSort
 
 ```python
 class Solution:
@@ -254,7 +257,7 @@ class Solution:
         return storeIndex
 ```
 
-### MergeSort
+## MergeSort
 
 ```python
 class Solution:
@@ -284,7 +287,7 @@ class Solution:
         nums[l: r + 1] = temp
 ```
 
-### HeapSort
+## HeapSort
 
 ```python
 class Solution:
