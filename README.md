@@ -153,6 +153,33 @@ public int binarySearch(int[][] jobs, int right, int target) {
 }
 ```
 
+```ts
+// LeetCode 034 Find First and Last Position of Element in Sorted Array
+function searchRange(nums: number[], target: number): number[] {
+    let n: number = nums.length, ans: number[] = [-1, -1];
+    if (n == 0) return ans;
+    // find the first position of target
+    let l: number = 0, r: number = n - 1;
+    while (l < r) {
+        let mid = l + ((r - l) >> 1);
+        if (nums[mid] >= target) r = mid;
+        else l = mid + 1;
+    }
+    if (nums[r] != target) return ans;
+    else ans[0] = r;
+    // finde the last position of target
+    l = 0; r = n - 1;
+    while (l < r) {
+        let mid = l + ((r - l + 1) >> 1);
+        // note (r - l + 1). Without  + 1, `r = mid` maybe cause infinite loop.
+        if (nums[mid] <= target) l = mid;
+        else r = mid - 1;
+    }
+    ans[1] = r;
+    return ans;
+};
+```
+
 ### Priority Queue
 
 ```java
