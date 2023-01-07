@@ -1,4 +1,4 @@
-# Notes
+## Notes
 
 - [Notes](#notes)
 - [Syntax](#syntax)
@@ -14,9 +14,9 @@
   - [MergeSort](#mergesort)
   - [HeapSort](#heapsort)
 
-# Syntax
+## Syntax
 
-## JavaScript Syntax
+### JavaScript Syntax
 
 ```js
 // Char Code
@@ -25,7 +25,7 @@ let size = s[i].charCodeAt() - '0'.charCodeAt();
 s[j] = String.fromCharCode('0'.charCodeAt() + diff);
 ```
 
-## Java Syntax
+### Java Syntax
 
 ```java
 // Max Min
@@ -111,7 +111,7 @@ for (int i = 0; i < len; i++) {
 }
 ```
 
-## Python Syntax
+### Python Syntax
 
 ```python
 # HashMap counter
@@ -130,9 +130,9 @@ while stack and temperature > temperatures[stack[-1]]:
 stack.append(i)
 ```
 
-# Algorithms
+## Algorithms
 
-## Binary Search
+### Binary Search
 
 ```java
 public int binarySearch(int[][] jobs, int right, int target) {
@@ -153,7 +153,7 @@ public int binarySearch(int[][] jobs, int right, int target) {
 }
 ```
 
-## Priority Queue
+### Priority Queue
 
 ```java
 public int popMaxHeap(int[] a, int heapSize) {
@@ -190,7 +190,7 @@ public void swap(int[] a, int i, int j) {
 }
 ```
 
-## Bepth-First Search
+### Bepth-First Search
 
 ```java
 public void dfs(int x, int y, int[][] grid, Queue<int[]> queue) {
@@ -204,7 +204,7 @@ public void dfs(int x, int y, int[][] grid, Queue<int[]> queue) {
 }
 ```
 
-## Breadth-First Search
+### Breadth-First Search
 
 ```java
 while (!queue.isEmpty()) {
@@ -228,7 +228,7 @@ while (!queue.isEmpty()) {
 }
 ```
 
-## QuickSort
+### QuickSort
 
 ```python
 class Solution:
@@ -257,7 +257,7 @@ class Solution:
         return storeIndex
 ```
 
-## MergeSort
+### MergeSort
 
 ```python
 class Solution:
@@ -287,7 +287,7 @@ class Solution:
         nums[l: r + 1] = temp
 ```
 
-## HeapSort
+### HeapSort
 
 ```python
 class Solution:
