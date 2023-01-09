@@ -4,8 +4,7 @@
 
 ## Solution
 
-```javascript
-
+```TypeScript
 
 ```
 
