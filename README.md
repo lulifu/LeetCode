@@ -6,6 +6,7 @@
   - [Java Syntax](#java-syntax)
   - [Python Syntax](#python-syntax)
 - [Algorithms](#algorithms)
+  - [Fast Power](#fast-power)
   - [Binary Search](#binary-search)
   - [Priority Queue](#priority-queue)
   - [Bepth-First Search](#bepth-first-search)
@@ -131,6 +132,44 @@ stack.append(i)
 ```
 
 ## Algorithms
+
+### Fast Power
+
+```ts
+// 70. climbing stairs
+function climbStairs(n: number): number {
+    // f(1) = f(0) = 1
+    // f(n) = f(n-1) + f(n-2)
+    // f(n+1) =  1 1   f(n)     = 1 1 (n)   f(1)
+    // f(n)   =  1 0   f(n-1)   = 1 0       f(0)
+    const p: number[][] = [[1,1],[1,0]];
+    let res = pow(p, n);
+    return res[1][0] + res[1][1];
+
+    // fast power: Time Complexity O(logn)
+    function pow(p: number[][], n: number): number[][] {
+        let ret = [[1,0],[0,1]];
+        while (n > 0) {
+            if ((n & 1) === 1) {
+                ret = multiple(ret, p);
+            }
+            n >>= 1;
+            p = multiple(p, p);
+        }
+        return ret;
+    }
+
+    function multiple(p: number[][], q: number[][]): number[][] {
+        let ret = new Array(2).fill(0).map(() => new Array(2).fill(0));
+        for (let i = 0; i < 2; i++) {
+            for (let j = 0; j < 2; j++) {
+                ret[i][j] = p[i][0] * q[0][j] + p[i][1] * q[1][j];
+            }
+        }
+        return ret;
+    }
+};
+```
 
 ### Binary Search
 
